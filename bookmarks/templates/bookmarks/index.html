@@ -1,0 +1,11 @@
+{% if latest_bookmark_list %}
+    <ul>
+        {% for bookmark in latest_bookmark_list %}
+        <li>
+            <a href="/bookmarks/{{ bookmark.id }}/">{{ bookmark.bookmark_name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No bookmarks exist</p>
+{% endif %}
