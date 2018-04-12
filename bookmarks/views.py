@@ -1,15 +1,19 @@
-from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
+from .forms import BookmarkForm
 from .models import Bookmark
 
 def index(request):
-    latest_bookmark_list = Bookmark.objects.all()
-    template = loader.get_template('bookmarks/index.html')
+    if request.method == 'POST':
+        form = BookmarkForm(request.POST)
+        if form.is_valid():
+            form.save()
     context = {
-        'latest_bookmark_list': latest_bookmark_list,
+        'bookmarks': Bookmark.objects.all(),
+        'form': BookmarkForm(),
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'bookmarks/index.html', context)
 
 def create(request):
     return HttpResponse("Working to create a new bookmark.")

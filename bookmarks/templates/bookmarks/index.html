@@ -1,7 +1,7 @@
-{% if latest_bookmark_list %}
+{% if bookmarks %}
 <h1>Bookmarks</h1>
     <ul>
-        {% for bookmark in latest_bookmark_list %}
+        {% for bookmark in bookmarks %}
         <li>
             <a href="{{ bookmark.bookmark_url }}">{{ bookmark.bookmark_name }}</a>
             <p>Note: {{ bookmark.bookmark_note }}</p>
@@ -12,18 +12,8 @@
     <p>No bookmarks exist</p>
 {% endif %}
 <h1>Add a New Bookmark</h1>
-<form name="form" action="create/" method="post">
-    <label for="name">Name Your Bookmark</label>
-    <input type="text" id="name" name="name" placeholder="Name me, bro"/>
-    <br/>
-    <br/>
-    <label for="url">Enter the URL</label>
-    <input type="text" id="url" name="url" placeholder="What's that URL?"/>
-    <br/>
-    <br/>
-    <label for="note">Write a Note About Your Bookmark</label>
-    <input type="text" id="note" name="note" placeholder="Write me a little love note"/>
-    <br/>
-    <br/>
-    <button type="Submit" value= "create" >Add a Shiny New Bookmark</button>
+<form name="form" class="bookmark-form" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="Submit" class= "save btn btn-default" >Add a Shiny New Bookmark</button>
 </form>
