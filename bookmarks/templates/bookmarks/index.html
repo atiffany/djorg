@@ -1,3 +1,6 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
 {% if bookmarks %}
 <h1>Bookmarks</h1>
     <ul>
@@ -11,9 +14,12 @@
 {% else %}
     <p>No bookmarks exist</p>
 {% endif %}
+
 <h1>Add a New Bookmark</h1>
 <form name="form" class="bookmark-form" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    {% bootstrap_form form %}
+    {% buttons %}
     <button type="Submit" class= "save btn btn-default" >Add a Shiny New Bookmark</button>
+    {% endbuttons %}
 </form>
