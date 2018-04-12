@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #our app
-    'bookmarks.apps.BookmarksConfig',
+    'bookmarks',
     #standard apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #3rd party apps
-    'bootstrap4'
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
