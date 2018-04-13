@@ -8,8 +8,8 @@
     {% bootstrap_javascript jquery='full' %}
 </head>
 
-<body class = "wrapper">
-    <div id="menu" class="menu">
+<body>
+    <div class="menu">
         {% block menu %}
         <ul class="navigation">
             <li><a href="/">Home</a></li>
@@ -20,7 +20,7 @@
     
     <div id="content">
         {% block content %}
-        <h1>Welcome to Djorgno</h1>
+        <h1 class="title">Welcome to Djorgno</h1>
         {% endblock %}
     </div>
 </body>

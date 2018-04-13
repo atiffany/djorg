@@ -1,7 +1,7 @@
-.title {
-    padding: .5em .5em .5em .5em;
-    font-size: 2.5em;
-    text-decoration-style: solid;
+.header {
+    padding-top: 2em;
+}
+.bookmarks {
     background-color: #607D8B;
     color: #FFFFFF;
 }
@@ -14,7 +14,7 @@
     color: #9E9E9E;
 }
 .note {
-    visibility: hidden;
+    visibility: visible;
     padding: .5em 1.5em;
 }
 #item .item_sub:hover > .note {

@@ -6,7 +6,7 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/bookmarks.css' %}"/>
 {% if bookmarks %}
-<ol>
+<ul class="bookmarks">
         <h1 class="title header">Bookmarks</h1>
         {% for bookmark in bookmarks %}
         <li id="item">
@@ -16,7 +16,7 @@
             </div>
         </li>
         {% endfor %}
-    </ol>
+    </ul>
 {% else %}
     <p class="title">No bookmarks exist</p>
 {% endif %}

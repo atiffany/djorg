@@ -5,23 +5,35 @@ html, body {
 * {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-ol {
-    background-color: #607D8B;
-    color: #FFFFFF;
+.menu {
+    background-color: #455A64;
+    width: 100%;
+    list-style-type: none;
+    float: right;
+}
+.navigation {
+    float: right;
+    list-style-type: none;
+    font-size: 1.15em;
 }
 li {
     display: inline;
     padding: 1em;
     margin-right: 3em;
 }
-.menu {
-    background-color: #455A64;
-    list-style-type: none;
-    color: #FFFFFF;
-    float: right;
-}
-.navigation {
-    list-style-type: none;
-    font-size: 1.15em;
+li a {
     color: #FFFFFF;
 }
+li a:hover {
+    color: #9E9E9E;
+}
+.title {
+    padding: .5em .5em .5em .5em;
+    font-size: 2.5em;
+    text-decoration-style: solid;
+    background-color: #607D8B;
+    color: #FFFFFF;
+}
+
+
+
