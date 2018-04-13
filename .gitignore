@@ -64,6 +64,9 @@ instance/
 # Sphinx documentation
 docs/_build/
 
+# SQLite database
+db.sqlite3
+
 # PyBuilder
 target/
 
