@@ -1,20 +1,24 @@
 {% extends "../base.html" %}
 {% load bootstrap4 %}
+{% load static %}
 
 {% block title %}Djorgno - Bookmarks{% endblock %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bookmarks.css' %}"/>
 {% if bookmarks %}
-<h1>Bookmarks</h1>
-    <ul>
+<ol>
+        <h1 class="title header">Bookmarks</h1>
         {% for bookmark in bookmarks %}
-        <li>
-            <a href="{{ bookmark.bookmark_url }}">{{ bookmark.bookmark_name }}</a>
-            <p>Note: {{ bookmark.bookmark_note }}</p>
+        <li id="item">
+            <div class="item_sub">
+                <a class="link" href="{{ bookmark.bookmark_url }}">{{ bookmark.bookmark_name }}</a>
+                <p class="note">Note: {{ bookmark.bookmark_note }}</p>
+            </div>
         </li>
         {% endfor %}
-    </ul>
+    </ol>
 {% else %}
-    <p>No bookmarks exist</p>
+    <p class="title">No bookmarks exist</p>
 {% endif %}
 
 {% include "./form.html" %}

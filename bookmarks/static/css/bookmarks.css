@@ -1,0 +1,22 @@
+.title {
+    padding: .5em .5em .5em .5em;
+    font-size: 2.5em;
+    text-decoration-style: solid;
+    background-color: #607D8B;
+    color: #FFFFFF;
+}
+.link {
+    list-style-type: none;
+    font-size: 1.25em;
+    color: #CFD8DC;
+}
+.link:hover {
+    color: #9E9E9E;
+}
+.note {
+    visibility: hidden;
+    padding: .5em 1.5em;
+}
+#item .item_sub:hover > .note {
+    visibility: visible;
+}

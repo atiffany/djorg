@@ -1,8 +1,8 @@
-import datetime
+from uuid import uuid4
 from django.db import models
-from django.utils import timezone
 
 class Bookmark(models.Model):
+    bookmark_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     bookmark_name = models.CharField(max_length=200)
     bookmark_url = models.URLField('URL', unique=True)
     bookmark_note = models.TextField('Note', blank=True)
@@ -13,6 +13,3 @@ class Bookmark(models.Model):
         return self.bookmark_url
     def __get_note__(self):
         return self.bookmark_note
-    def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
-

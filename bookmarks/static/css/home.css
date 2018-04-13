@@ -1,0 +1,27 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+ol {
+    background-color: #607D8B;
+    color: #FFFFFF;
+}
+li {
+    display: inline;
+    padding: 1em;
+    margin-right: 3em;
+}
+.menu {
+    background-color: #455A64;
+    list-style-type: none;
+    color: #FFFFFF;
+    float: right;
+}
+.navigation {
+    list-style-type: none;
+    font-size: 1.15em;
+    color: #FFFFFF;
+}
