@@ -92,7 +92,7 @@ DATABASES = {
 #         default=config('DATABASE_URL')
 #     )
 # }
-DATABASES['default'] = dj_database_url.config(default='DATABASE_URL')
+DATABASES['default'] = dj_database_url.config(default='HEROKU_POSTGRESQL_ONYX_URL')
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
