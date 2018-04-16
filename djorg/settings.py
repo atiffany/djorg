@@ -29,8 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS=['0.0.0.0']
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', '.herokuapp.com']
 
 
 # Application definition
@@ -38,6 +37,7 @@ ALLOWED_HOSTS = ['.herokuapp.com']
 INSTALLED_APPS = [
     #our app
     'bookmarks',
+    'notes',
     #standard apps
     'django.contrib.admin',
     'django.contrib.auth',
