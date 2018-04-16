@@ -27,17 +27,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True cast=bool)
+# DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '.herokuapp.com']
-
+#ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
-
 INSTALLED_APPS = [
-    #our app
-    'bookmarks',
-    'notes',
     #standard apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,6 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #3rd party apps
     'bootstrap4',
+    'rest_framework',
+    #our apps
+    'bookmarks',
+    'notes',
 ]
 
 MIDDLEWARE = [
@@ -78,22 +79,40 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    # Use Django's standard 'django.contrib.auth' permissions
+    # or allow read-only access for unauthenticated users
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 WSGI_APPLICATION = 'djorg.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL')),
+# DATABASES = {
+#     # 'default': dj_database_url.config(default=config('DATABASE_URL')),
 
-}
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
-# else DATABASE_URL = config('DATABASE_URL')
-# DATABASES['default'] = dj_database_url.config(
-#     default=DATABASE_URL, conn_max_age=20)
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
+    }
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
