@@ -31,27 +31,39 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
-# ALLOWED_HOSTS = ['127.0.0.1']
+CORS_ORIGIN_WHITELIST = config('ALLOWED_CLIENTS').split(',')
 
 # Application definition
 INSTALLED_APPS = [
     #standard apps
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # ... include the providers you want to enable:
+    'allauth.socialaccount.providers.github',
     #3rd party apps
     'bootstrap4',
+    'corsheaders',
+    'graphene_django',
     'rest_framework',
     #our apps
     'bookmarks',
+    'chatter',
     'notes',
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,12 +91,37 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    }
+}
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+
 REST_FRAMEWORK = {
     # Use Django's standard 'django.contrib.auth' permissions
     # or allow read-only access for unauthenticated users
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
+}
+
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema'
 }
 
 WSGI_APPLICATION = 'djorg.wsgi.application'

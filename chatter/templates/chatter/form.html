@@ -1,0 +1,11 @@
+{% load bootstrap4 %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}" />
+<form name="form" class="bookmark-form" method="POST">
+    <h1 class="title">Send a Message With Chatter</h1>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="Submit" class= "save btn btn-default" >Start Chattering</button>
+    {% endbuttons %}
+</form>

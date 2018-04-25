@@ -22,10 +22,10 @@ li {
     margin-right: 3em;
 }
 li a {
-    color: #FFFFFF;
+    color: #9E9E9E;
 }
 li a:hover {
-    color: #9E9E9E;
+    color: #000000;
 }
 .title {
     padding: .5em .5em .5em .5em;

@@ -1,9 +1,7 @@
 {% load bootstrap4 %}
-{% load static %}
 <!DOCTYPE html>
 <head>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
-    <title>{% block title %}Djorgno{% endblock %}</title>
+    <title>{% block title %}Chatter{% endblock %}</title>
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
 </head>
@@ -13,6 +11,7 @@
         {% block menu %}
         <ul class="navigation">
             <li><a href="/">Home</a></li>
+            <li><a href="/bookmarks">Bookmarks</a></li>
             <li><a href="/bookmarks">Bookmarks</a></li>
         </ul>
         {% endblock %}
