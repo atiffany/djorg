@@ -8,5 +8,5 @@ class Chatter(models.Model):
     content = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     hasBeenRead = models.BooleanField(default=False)
-    timeRead = models.DateTimeField(blank=True, auto_now=False)
+    timeRead = models.DateTimeField(null=True, auto_now=False)
     fromUser = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name="fromUser")
