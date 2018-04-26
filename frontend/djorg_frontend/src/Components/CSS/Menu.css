@@ -13,8 +13,11 @@ a {
     text-decoration: none;
     font-size: .75em;
     font-weight: bold;
-    color: dodgerblue;
+    color: darkslategray;
 }
 a:hover {
     color: whitesmoke;
+}
+a:active {
+    color: darkgray;
 }

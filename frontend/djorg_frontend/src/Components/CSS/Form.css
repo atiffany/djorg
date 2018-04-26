@@ -1,0 +1,11 @@
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: end;
+}
+.input {
+    font-size: .75em;
+}
+.button {
+    width: 5em;
+}

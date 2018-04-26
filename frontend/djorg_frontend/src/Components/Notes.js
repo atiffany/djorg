@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import Form from './Form'
 
 const notesClient = axios.create({
   baseURL: 'http://127.0.0.1:8000/api/notes/',
@@ -9,6 +10,7 @@ const notesClient = axios.create({
 class Notes extends Component {
   state = {
     notes: [],
+    title: 'notes title',
     error: '',
   };
 
@@ -25,16 +27,18 @@ class Notes extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="wrapper">
+      <div className="header">Notes</div>
         <ul>
           { this.state.notes.map(note => 
             <li key={ note.id }>
-              <h4>{ note.title }</h4>
-              <p>{ note.content }</p>
+              <div className="title">{ note.title }</div>
+              <div className="note">{ note.content }</div>
             </li>
           )}
         </ul>
         { this.state.error ? <h2> { this.state.error } </h2> : '' }
+        <Form title={this.state.title} />
       </div>
     );
   }

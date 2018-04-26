@@ -21,4 +21,8 @@ html, body {
 .App-intro {
   font-size: large;
 }
+.Date {
+  margin: 1em 0 0 0;
+  font-size: 0.5em;
+}
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-browser-router'
-import './Menu.css';
 
 class Menu extends Component {
   render() {

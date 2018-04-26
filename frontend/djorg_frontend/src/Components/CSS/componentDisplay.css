@@ -1,0 +1,31 @@
+.wrapper {
+    width: 80%;
+    min-height: 20em;
+    margin: auto;
+    padding: 2em;
+    background-color: gainsboro;
+    border: .10em solid lightgray;
+    box-shadow: darkgray .07em .05em .02em .02em;
+    color: darkgray;
+}
+li {
+    list-style-type: none;
+    text-align: left;
+    padding-bottom: 2em;
+}
+a {
+    text-decoration: none;
+    color: darkgray;
+}
+a:hover {
+    color: white;
+}
+.title {
+    font-size: 1.15em;
+}
+.note {
+    font-size: .75em;
+}
+.header {
+    font-style: italic;
+}
